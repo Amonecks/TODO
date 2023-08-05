@@ -1,0 +1,142 @@
+@mixin tb {
+    @media (max-width: 850px){
+        @content;
+    }
+}
+@mixin xs {
+    @media (max-width: 525px){
+        @content;
+    }
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 24px;
+    border: none;
+    background: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.wrapper{
+    width: 840px;
+    margin: 0 auto;
+    padding: 25px 0;
+    @include tb{
+        width: 100%;
+        padding: 25px;
+    }
+    @include xs{
+        padding: 10px;
+    }
+}
+
+.input{
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+    border-radius: 6px;
+    font-size: 20px;
+    outline: none;
+    border: 3px solid #28353C;
+    @include xs{
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+}
+
+.todos{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 25px 0 0 0;
+    &__items{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    &__title{
+        font-size: 36px;
+        font-weight: 600;
+        @include xs{
+            font-size: 24px;
+        }
+    }
+    &__section{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    &__empty{
+        font-size: 18px;
+    }
+}
+
+.todo{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    &__title{
+        width: 100%;
+        line-height: 24px;
+        @include xs{
+            font-size: 14px;
+            line-height: 130%;
+        }
+    }
+    &__checkbox{
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+        @include xs{
+            height: 18px;
+            width: 18px;
+        }
+    }
+    &__datecomplete{
+        flex-shrink: 0;
+        font-size: 16px;
+        color: #28353C;
+        @include xs{
+            font-size: 12px;
+        }
+    }
+}
+.form{
+    display: flex;
+    gap: 10px;
+    height: 50px;
+    @include xs{
+        flex-direction: column;
+        height: auto;
+    }
+}
+.btn{
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: 0.3s all;
+    @include xs{
+        font-size: 14px;
+    }
+    &_remove{
+        background: #FF4040;
+    }
+    &_add{
+        background: #28353C;
+        height: 100%;
+        display: block;
+        padding: 5px 25px;
+        &:hover{
+            background: #FF4040;
+        }
+        @include xs{
+            padding: 10px 25px;
+        }
+    }
+}
+
